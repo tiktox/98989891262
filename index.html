@@ -10,8 +10,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
         
         :root {
-            --primary: #121212;
-            --secondary: #1a1a1a;
+            --primary: #000000;
+            --secondary: #000000;
             --accent: #00e5ff;
             --text: #ffffff;
             --text-secondary: #b0b0b0;
@@ -538,26 +538,6 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-        
-        /* Responsive */
-        @media (max-width: 480px) {
-            .profile-wrapper {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .profile-name {
-                font-size: 2rem;
-            }
-            
-            .profile-title {
-                font-size: 1rem;
-            }
             
             .section {
                 padding: 20px;
@@ -570,7 +550,6 @@
             .portfolio-img {
                 height: 160px;
             }
-        }
         
         /* Animations */
         @keyframes fadeIn {
@@ -627,17 +606,132 @@
     <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </div>
+    <style>
+        /* Header & Profile */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px 20px;
+            position: relative;
+        }
+        
+        .profile-wrapper {
+            position: relative;
+            width: 220px;  /* Aumentado de 140px */
+            height: 220px; /* Aumentado de 140px */
+            margin-bottom: 24px;
+        }
+        
+        .profile-video {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            overflow: hidden;
+        }
+    
+        .profile-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive */
+        @media (max-width: 480px) {
+            .profile-wrapper {
+                width: 180px;  /* Aumentado de 100px */
+                height: 180px; /* Aumentado de 100px */
+            }
+            
+            .profile-video {
+                width: 100%;
+                height: 100%;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-title {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-img {
+                height: 160px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate__fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--card-border);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     
     <!-- Profile Section -->
     <header class="profile-container">
         <div class="profile-wrapper">
-            <div class="pulse-ring"></div>
-            <img src="https://github.com/tiktox/98989891262/blob/main/Captura%20de%20pantalla%202025-04-23%20114349-modified.png?raw=true" alt="Cesar Gomez" class="profile-img">
+            <div class="profile-video">
+                <video autoplay loop muted playsinline>
+                    <source src="https://ik.imagekit.io/ajkl5a98u/video%20completo%20de%20animaci%C3%B3n.mp4?updatedAt=1746487191255" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
         </div>
-        <h1 class="profile-name">César Gómez</h1>
+        <h1 class="profile-name">Deyconic - Cesar Gomez</h1>
         <h2 class="profile-title">Digitalizador Empresarial</h2>
     </header>
-    
     <!-- Main Content -->
     <main class="main-container">
         <!-- Navigation Buttons -->
